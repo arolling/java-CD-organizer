@@ -18,10 +18,11 @@ public class App {
 
     post("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
-
+      String newPerson = request.queryParams("cdArtist");
+      Artist newArtist = new Artist(newPerson);
       String newTitle = request.queryParams("cdTitle");
       Cd newCd = new Cd(newTitle);
-
+      model.put("allArtists", Artist.all());
       model.put("allCds", Cd.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);

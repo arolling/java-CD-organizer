@@ -2,8 +2,12 @@
   <h1>CD Organizer</h1>
   <form class="form-inline" action="/" method="post">
     <div class="form-group">
-      <label for="cdTitle">CD Title:</label>
+      <label for="cdTitle">Album Title:</label>
       <input type="text" name="cdTitle" id="cdTitle">
+    </div>
+    <div class="form-group">
+      <label for="cdArtist">Artist:</label>
+      <input type="text" name="cdArtist" id="cdArtist">
     </div>
     <button type="submit" id="addTitle">Submit</button>
   </form>
@@ -14,6 +18,15 @@
 <ul>
   #foreach ($cd in $allCds)
     <li>$cd.getTitle()</li>
+  #end
+</ul>
+#end
+<hr />
+#if ($allArtists)
+<h2>Artists in My Collection:</h2>
+<ul>
+  #foreach ($artist in $allArtists)
+    <li>$artist.getName()</li>
   #end
 </ul>
 #end

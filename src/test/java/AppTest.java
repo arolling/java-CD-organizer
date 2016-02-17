@@ -36,8 +36,10 @@ public class AppTest extends FluentTest {
   public void newCDTest() {
     goTo("http://localhost:4567/");
     fill("#cdTitle").with("Mozart Part II");
+    fill("#cdArtist").with("Wolfgang Amadeus Mozart");
     submit("#addTitle");
     assertThat(pageSource()).contains("Mozart Part II");
+    assertThat(pageSource()).contains("Wolfgang");
   }
 
   @Test

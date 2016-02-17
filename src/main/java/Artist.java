@@ -18,7 +18,7 @@ public class Artist {
   public static ArrayList<Artist> all() {
     return mAllArtists;
   }
-  
+
   public static void clear() {
     mAllArtists.clear();
     //mCdsByArtist.clear();
