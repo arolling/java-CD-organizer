@@ -26,7 +26,7 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
     goTo("http://localhost:4567/");
-    assertThat(pageSource()).contains("CD Collection");
+    assertThat(pageSource()).contains("CD Organizer");
   }
 
   @Test
@@ -35,6 +35,17 @@ public class AppTest extends FluentTest {
     fill("#cdTitle").with("Mozart Part II");
     submit("#addTitle");
     assertThat(pageSource()).contains("Mozart Part II");
+  }
+
+  @Test
+  public void multipleCDTest() {
+    goTo("http://localhost:4567/");
+    fill("#cdTitle").with("Mozart Part II");
+    submit("#addTitle");
+    fill("#cdTitle").with("Amy Grant: Greatest Hits");
+    submit("#addTitle");
+    assertThat(pageSource()).contains("Mozart Part II");
+    assertThat(pageSource()).contains("Amy Grant: Greatest Hits");
   }
 
 }

@@ -1,12 +1,19 @@
-<h1>CD Collection</h1>
-<form class="form-inline" action="/cds" method="post">
-  <div class="form-group">
-    <label for="cdTitle">CD Title:</label>
-    <input type="text" name="cdTitle" id="cdTitle">
-  </div>
-  <button type="submit" id="addTitle">Submit</button>
-</form>
+<div class="jumbotron">
+  <h1>CD Organizer</h1>
+  <form class="form-inline" action="/" method="post">
+    <div class="form-group">
+      <label for="cdTitle">CD Title:</label>
+      <input type="text" name="cdTitle" id="cdTitle">
+    </div>
+    <button type="submit" id="addTitle">Submit</button>
+  </form>
+</div>
 
-#if ($cd)
-  $cd.getTitle()
+#if ($allCds)
+<h2>My Collection:</h2>
+<ul>
+  #foreach ($cd in $allCds)
+    <li>$cd.getTitle()</li>
+  #end
+</ul>
 #end
