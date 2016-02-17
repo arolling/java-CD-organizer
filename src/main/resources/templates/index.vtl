@@ -13,20 +13,17 @@
   </form>
 </div>
 
-#if ($allCds)
-<h2>My Collection:</h2>
-<ul>
-  #foreach ($cd in $allCds)
-    <li>$cd.getTitle()</li>
-  #end
-</ul>
-#end
 <hr />
 #if ($allArtists)
 <h2>Artists in My Collection:</h2>
 <ul>
   #foreach ($artist in $allArtists)
     <li>$artist.getName()</li>
+    <ol>
+    #foreach ($cd in $artist.getCdsByArtist())
+      <li>$cd.getTitle()</li>
+    #end
+    </ol>
   #end
 </ul>
 #end

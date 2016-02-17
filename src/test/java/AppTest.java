@@ -56,4 +56,18 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Amy Grant");
   }
 
+  @Test
+  public void multipleCDSameArtistTest() {
+    goTo("http://localhost:4567/");
+    fill("#cdTitle").with("Mozart Part II");
+    fill("#cdArtist").with("Amy Grant");
+    submit("#addTitle");
+    fill("#cdTitle").with("Greatest Hits");
+    fill("#cdArtist").with("Amy Grant");
+    submit("#addTitle");
+    assertThat(pageSource()).contains("Mozart Part II");
+    assertThat(pageSource()).contains("Greatest Hits");
+    assertThat(pageSource()).contains("Amy Grant");
+  }
+
 }
