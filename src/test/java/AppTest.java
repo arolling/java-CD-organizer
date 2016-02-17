@@ -22,6 +22,9 @@ public class AppTest extends FluentTest {
   @ClassRule
   public static ServerRule server = new ServerRule();
 
+  @Rule
+  public ClearRule clearRule = new ClearRule();
+
   //Integration testing
   @Test
   public void rootTest() {
