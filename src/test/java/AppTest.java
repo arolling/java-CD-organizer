@@ -28,4 +28,13 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     assertThat(pageSource()).contains("CD Collection");
   }
+
+  @Test
+  public void newCDTest() {
+    goTo("http://localhost:4567/");
+    fill("#cdTitle").with("Mozart Part II");
+    submit("#addTitle");
+    assertThat(pageSource()).contains("Mozart Part II");
+  }
+
 }
