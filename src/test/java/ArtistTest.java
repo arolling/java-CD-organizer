@@ -10,5 +10,9 @@ public class ArtistTest {
     assertEquals(true, testArtist instanceof Artist);
   }
 
-
+  @Test
+  public void Artist_getArtistCorrectly_Artist(){
+    Artist testArtist = new Artist("Amy Grant");
+    assertEquals("Amy Grant", testArtist.getName());
+  }
 }
