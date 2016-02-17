@@ -46,11 +46,14 @@ public class AppTest extends FluentTest {
   public void multipleCDTest() {
     goTo("http://localhost:4567/");
     fill("#cdTitle").with("Mozart Part II");
+    fill("#cdArtist").with("Wolfgang Amadeus Mozart");
     submit("#addTitle");
-    fill("#cdTitle").with("Amy Grant: Greatest Hits");
+    fill("#cdTitle").with("Greatest Hits");
+    fill("#cdArtist").with("Amy Grant");
     submit("#addTitle");
     assertThat(pageSource()).contains("Mozart Part II");
-    assertThat(pageSource()).contains("Amy Grant: Greatest Hits");
+    assertThat(pageSource()).contains("Greatest Hits");
+    assertThat(pageSource()).contains("Amy Grant");
   }
 
 }

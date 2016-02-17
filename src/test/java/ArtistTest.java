@@ -1,5 +1,6 @@
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.ArrayList;
 
 public class ArtistTest {
   @Rule
@@ -26,11 +27,16 @@ public class ArtistTest {
     assertEquals(3, Artist.all().size());
   }
 
-  // @Test
-  // public void Artist_addTitleObjectCorrectly_addTitle(){
-  //   Cd testCd = new Cd("Mozart Part II");
-  //   Artist testArtist = new Artist("Amy Grant");
-  //
-  //   assertEquals("Mozart Part II", testArtist.addTitle());
-  // }
+  @Test
+  public void Artist_addTitleObjectCorrectly_addTitle(){
+    Cd testCd = new Cd("Mozart Part II");
+    Cd testCd2 = new Cd("Mozart Greatest Hits");
+    Artist testArtist = new Artist("Amy Grant");
+    testArtist.addTitle(testCd);
+    testArtist.addTitle(testCd2);
+    ArrayList<Cd> testArrayCompare = new ArrayList<Cd>();
+    testArrayCompare.add(testCd);
+    testArrayCompare.add(testCd2);
+    assertEquals(testArrayCompare, testArtist.getCdsByArtist());
+  }
 }

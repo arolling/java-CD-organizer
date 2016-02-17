@@ -2,13 +2,20 @@ import java.util.ArrayList;
 
 public class Artist {
   private String mName;
-  //private static ArrayList<Cd> mCdsByArtist = new ArrayList<Cd>();
+  private ArrayList<Cd> mCdsByArtist = new ArrayList<Cd>();
   private static ArrayList<Artist> mAllArtists = new ArrayList<Artist>();
 
   public Artist(String name) {
     mName = name;
     mAllArtists.add(this);
-    //ArrayList of titles by this artist
+  }
+
+  public void addTitle(Cd newCd) {
+    mCdsByArtist.add(newCd);
+  }
+
+  public ArrayList<Cd> getCdsByArtist() {
+    return mCdsByArtist;
   }
 
   public String getName() {
@@ -21,7 +28,6 @@ public class Artist {
 
   public static void clear() {
     mAllArtists.clear();
-    //mCdsByArtist.clear();
   }
 
 }
