@@ -37,5 +37,19 @@ public class App {
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    post("/index", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      String chosenArtist = request.queryParams("chooseArtist");
+      for (Artist singer : Artist.all()) {
+        if (chosenArtist.equals(singer.getName())){
+          Artist thisArtist = singer;
+          model.put("thisArtist", thisArtist);
+        }
+      }
+      model.put("testArtist", chosenArtist);
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
 }

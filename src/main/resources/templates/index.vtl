@@ -14,16 +14,30 @@
 </div>
 
 <hr />
-#if ($allArtists)
-<h2>Artists in My Collection:</h2>
-<ul>
-  #foreach ($artist in $allArtists)
-    <li>$artist.getName()</li>
-    <ol>
-    #foreach ($cd in $artist.getCdsByArtist())
-      <li>$cd.getTitle()</li>
+<div class="row">
+  <div class="col-md-6">
+    #if ($allArtists)
+    <h2>Artists in My Collection:</h2>
+    <ul>
+      #foreach ($artist in $allArtists)
+      <form action="/index" method="post" id="$artist">
+        <input type="hidden" value="$artist.getName()" name="chooseArtist">
+        <li><a onclick="document.getElementById('$artist').submit(); return false;">$artist.getName()</a></li>
+      </form>
+      #end
+    </ul>
     #end
+  </div>
+  <div class="col-md-6">
+    #if ($testArtist)
+    $testArtist
+    #end
+    #if ($thisArtist)
+    <ol>
+      #foreach ($cd in $thisArtist.getCdsByArtist())
+      <li>$cd.getTitle()</li>
+      #end
     </ol>
-  #end
-</ul>
-#end
+    #end
+  </div>
+</div>

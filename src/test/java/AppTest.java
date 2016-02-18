@@ -38,6 +38,7 @@ public class AppTest extends FluentTest {
     fill("#cdTitle").with("Mozart Part II");
     fill("#cdArtist").with("Wolfgang Amadeus Mozart");
     submit("#addTitle");
+    click("a", withText("Wolfgang Amadeus Mozart"));
     assertThat(pageSource()).contains("Mozart Part II");
     assertThat(pageSource()).contains("Wolfgang");
   }

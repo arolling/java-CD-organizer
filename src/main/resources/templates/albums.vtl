@@ -1,0 +1,8 @@
+<div class="jumbotron">
+  <h1>$artist.getName()</h1>
+</div>
+<ol>
+  #foreach ($cd in $artist.getCdsByArtist())
+  <li>$cd.getTitle()</li>
+  #end
+</ol>
