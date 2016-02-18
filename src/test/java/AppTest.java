@@ -13,7 +13,7 @@ import static org.fluentlenium.core.filter.FilterConstructor.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AppTest extends FluentTest {
-  public WebDriver webDriver = new HtmlUnitDriver();
+  public WebDriver webDriver = new HtmlUnitDriver(true);
   @Override
   public WebDriver getDefaultDriver() {
       return webDriver;
@@ -52,8 +52,7 @@ public class AppTest extends FluentTest {
     fill("#cdTitle").with("Greatest Hits");
     fill("#cdArtist").with("Amy Grant");
     submit("#addTitle");
-    assertThat(pageSource()).contains("Mozart Part II");
-    assertThat(pageSource()).contains("Greatest Hits");
+    assertThat(pageSource()).contains("Wolfgang Amadeus Mozart");
     assertThat(pageSource()).contains("Amy Grant");
   }
 
@@ -66,6 +65,7 @@ public class AppTest extends FluentTest {
     fill("#cdTitle").with("Greatest Hits");
     fill("#cdArtist").with("Amy Grant");
     submit("#addTitle");
+    click("a", withText("Amy Grant"));
     assertThat(pageSource()).contains("Mozart Part II");
     assertThat(pageSource()).contains("Greatest Hits");
     assertThat(pageSource()).contains("Amy Grant");

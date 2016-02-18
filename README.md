@@ -16,7 +16,7 @@ This simple website takes user input of a series of CDs and displays a list of t
 
 ## Known Bugs
 
-Some integration testing does not pass, possibly because fluentlenium is not executing javascript appropriately.
+Had to enable javascript handling in the WebDriver - according to documentation, this particular implementation is quirky.
 
 ## Technologies Used
 
