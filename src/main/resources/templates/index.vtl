@@ -20,7 +20,7 @@
     <h2>Artists in My Collection:</h2>
     <ul>
       #foreach ($artist in $allArtists)
-      <form action="/index" method="post" id="$artist">
+      <form action="/" method="post" id="$artist">
         <input type="hidden" value="$artist.getName()" name="chooseArtist">
         <li><a onclick="document.getElementById('$artist').submit(); return false;">$artist.getName()</a></li>
       </form>
